@@ -1,0 +1,29 @@
+{
+	"name": "openbuildings/spiderling",
+	"description": "Crawl the web with kohana, phantomjs or selenium",
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Ivan Kerin",
+			"email": "ivan@openbuildings.com",
+			"role": "Author"
+		}
+	],
+	"require": {
+		"symfony/css-selector": "^2.3|^3.0",
+		"openbuildings/environment-backup": "~0.1.1"
+	},
+	"require-dev": {
+		"openbuildings/kohana-test-bootstrap": "^0.2",
+		"se/selenium-server-standalone": "2.40",
+		"phpunit/phpunit": "^4.0|^5.0"
+	},
+	"autoload": {
+		"psr-0": {"Openbuildings\\Spiderling\\": "src/"}
+	},
+	"config": {
+		"platform": {
+			"php": "5.4"
+		}
+	}
+}
