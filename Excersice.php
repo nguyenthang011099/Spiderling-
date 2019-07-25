@@ -5,15 +5,20 @@ use Openbuildings\Spiderling\Page;
 
 $page = new Page();
 
-
-$page->visit('https://www.lazada.vn/dien-thoai-di-dong/?spm=a2o4n.home.cate_1.1.19056afe6QnAdy');
-$result=[];
+$link = readline("link : ");
+$page->visit($link);
+$result = [];
 $title = $page->find('title');
-$result[]= $title->text() . "\n";
+$result[] = $title->text() . "\n";
 $meta = $page->find('meta[name="description"]');
-$content=$meta->attribute('content')."\n";
-$result[]=$content;
+$content = $meta->attribute('content') . "\n";
+$result[] = $content;
 
-$arr= preg_split('/ /', $content);
-$result[]= array_count_values($arr);
-return($result);
+$arr = preg_split('/ /', $content);
+$count = array_count_values($arr);
+
+krsort($arr);
+for ($i = 0; $i < 10; $i++) {
+    $result[] = $arr[$i] . "\n";
+}
+return $result;
