@@ -19,9 +19,9 @@ class array_sort
         $sorted = $this->_asort;
         krsort($sorted);
         for($i=0; $i<10; $i++){
-            $result[]=$sorted[$i];
+            $popularword[]=$sorted[$i];
         }
-        return $result;
+        return $popularword;
     }
 }
 try {
@@ -35,11 +35,15 @@ try {
 
     $arr = preg_split('/ /', $content);
     $count = array_count_values($arr);
+
     //khoi tao doi tuong moi
     $sortarray = new array_sort($arr);
 
-   // print_r($sortarray->alhsort())."\n";
-
+    $a[]=($sortarray->alhsort());
+    foreach ($a as $value){
+        $result[]=$value;
+    }
+    return ($result);
 } catch (Exception $e) {
     echo "Link fail !!! "."\n";
     echo "please write link website again ...."."\n";
